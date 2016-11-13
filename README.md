@@ -17,6 +17,7 @@ runfast充值核心系统
 * python-memcached
 * memcached --安装 python-memcached
 * mysql-python
+* Pillow
 * redis
 
 ##### 注意：

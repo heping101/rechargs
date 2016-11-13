@@ -28,9 +28,9 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xylive',
+        'NAME': 'mysite',
         'USER': 'root',
-        'PASSWORD': 'wangyonghui123',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
         'CONN_MAX_AGE': 10

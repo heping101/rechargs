@@ -85,7 +85,7 @@ MIDDLEWARE_CLASSES = (
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'xylive.urls'
+ROOT_URLCONF = 'recharge.urls'
 
 TEMPLATES = [
     {
@@ -108,7 +108,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'xylive.wsgi.application'
+# WSGI_APPLICATION = 'recharge.wsgi.application'
 
 
 # A dictionary mapping "app_label.model_name" strings to functions that take a
@@ -172,7 +172,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-cn'
 
-LANGUAGE_COOKIE_NAME = 'xylive'
+LANGUAGE_COOKIE_NAME = 'recharge'
 
 LANGUAGES = (
     ('zh-cn', u'简体中文'),
@@ -206,15 +206,15 @@ CACHE_VISIT_STAT_PERIOD = 28800        # 8小时内的重复访问不做记录
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'mc.demodemo.cc:11211',
+        'LOCATION': 'mc.runfast.cn:11211',
         'TIMEOUT': 86400,
-        'KEY_PREFIX': 'XYLIVE'
+        'KEY_PREFIX': 'RECHARGE'
     },
     CACHE_PAGE_CACHE_ALIAS: {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'mc.demodemo.cc:6379:1',
+        'LOCATION': 'mc.runfast.cn:6379:1',
         'TIMEOUT': 86400,
-        'KEY_PREFIX': 'XYLIVE',
+        'KEY_PREFIX': 'RECHARGE',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             # 'IGNORE_EXCEPTIONS': True,
@@ -223,31 +223,9 @@ CACHES = {
     },
     CACHE_DATA_STORE_ALIAS: {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'mc.demodemo.cc:6379:2',
+        'LOCATION': 'mc.runfast.cn:6379:2',
         'TIMEOUT': 86400,
-        'KEY_PREFIX': 'XYLIVE',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            # 'IGNORE_EXCEPTIONS': True,
-            # 'PASSWORD': 'secretpassword',  # Optional
-        },
-    },
-    CACHE_LIVE_DATA_ALIAS: {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'mc.demodemo.cc:6379:3',
-        'TIMEOUT': 31536000,
-        'KEY_PREFIX': 'XYLIVE',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            # 'IGNORE_EXCEPTIONS': True,
-            # 'PASSWORD': 'secretpassword',  # Optional
-        },
-    },
-    CACHE_VISIT_STAT_ALIAS: {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'mc.demodemo.cc:6379:4',
-        'TIMEOUT': 86400,
-        'KEY_PREFIX': 'XYLIVE',
+        'KEY_PREFIX': 'RECHARGE',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             # 'IGNORE_EXCEPTIONS': True,
@@ -260,7 +238,7 @@ CACHE_MIDDLEWARE_ALIAS = CACHE_PAGE_CACHE_ALIAS
 
 # CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
-CACHE_MIDDLEWARE_KEY_PREFIX = 'XYLIVE'
+CACHE_MIDDLEWARE_KEY_PREFIX = 'RECHARGE'
 
 CACHE_MIDDLEWARE_SECONDS = 86400
 
@@ -364,7 +342,7 @@ try:
     from recharge.config import me
     MY_HOST_IDENT = me._HOST_IDENT
 except:
-    raise Exception("Can not identify my IDENT, setup it in local xylive/config/me.py file first!")
+    raise Exception("Can not identify my IDENT, setup it in local recharge/config/me.py file first!")
 
 # --------------------------------------
 # 根据 me.py 文件中标识，加载对应的本地化配置文件
