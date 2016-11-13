@@ -1,0 +1,16 @@
+migrations/
+Resources/
+Daemony/
+logs/
+
+me.py
+storage/
+dist/
+.idea
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py

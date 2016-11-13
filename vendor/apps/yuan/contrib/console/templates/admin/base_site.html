@@ -1,0 +1,55 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+{% load vendorinfo %}
+
+{% block title %}{{ title|escape }} | {% blocktrans %}{{ SITEINFO_NAME }} site administration{% endblocktrans %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% blocktrans %}{{ SITEINFO_NAME }} site administration{% endblocktrans %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block footer %}
+<div id="footer" style="margin-top: 20px;border-top: 1px solid #CCCCCC;color: #777777;">
+  <div style="margin-left: 5px;float: left;"><a href="{{ SITEINFO_URL|escape }}">{{ SITEINFO_NAME|escape }}</a> &copy; 2015 DIrk.sh All rights reserved.</div>
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+function textarea_resize() {
+    //
+    // Resize all textareas
+    //
+    textareas = document.getElementsByTagName("textarea");
+    for (var i = 0; i <= textareas.length - 1; i ++) {
+        try {
+            textarea = textareas[i];
+            try {
+                rows = textarea.firstChild.data.split("\n").length;
+                if (rows < 20) {
+                    rows = 20;
+                } else if (rows > 25) {
+                    rows = 25;
+                }
+            } catch(e) {
+                rows = 20;
+            }
+            textarea.rows = rows;
+        } catch (e) {
+            alert("textarea_resize() error:" + e);
+        }
+    }
+}
+textarea_resize();
+/* ]]> */
+</script>
+<style type="text/css">
+textarea {
+    font-family: monospace;
+    font-size: 1.5em;
+}
+.colM .aligned .vLargeTextField, .colM .aligned .vXMLLargeTextField {
+    width: 68%;
+}
+</style>
+{% endblock %}

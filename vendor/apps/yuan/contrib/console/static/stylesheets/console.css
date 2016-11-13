@@ -1,0 +1,468 @@
+body {
+  background-color: #FFFFFF;
+  color: #333333;
+  margin: 0px auto;
+  padding: 0px;
+  width: 100%;
+  border-spacing: 0px;
+}
+
+body, p, ol, ul, td {
+  font-family: "Lucida Grande",Verdana,"Bitstream Vera Sans",Arial,sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a, a:visited {
+  padding: 1px;
+  color: #577DE7;
+  text-decoration: none;
+}
+a[href^="http:"], a[href^="ftp:"] {
+  padding-right: 12px;
+  background: url(../images/externallink.gif) no-repeat right top;
+}
+a[href^="http://yeyt.net"], a[href^="http://www.yeyt.net"] {
+  padding-right: 1px;
+  background: none;
+}
+a:hover, a:active {
+  color: #FFFFFF;
+  background-color: #43A65A;
+}
+a[href^="http:"]:hover, a[href^="http:"]:active, a[href^="ftp:"]:hover, a[href^="ftp:"]:active {
+  color: #CC6600;
+  text-decoration: underline;
+  background-color: transparent;
+}
+a[href^="http://yeyt.net"]:hover, a[href^="http://yeyt.net"]:active, a[href^="http://www.yeyt.net"]:hover, a[href^="http://www.yeyt.net"]:active {
+  color: #FFFFFF;
+  background: none;
+  text-decoration: none;
+  background-color: #43A65A;
+  padding-right: 1px;
+}
+
+/**
+a { 
+  color: #577DE7; 
+  text-decoration: none;
+}
+a:visited { 
+  color: #577DE7; 
+  text-decoration: none;
+}
+a:hover { 
+  color: #43A65A; 
+  text-decoration: none;
+  border-bottom: 2px solid #43A65A;
+}
+*/
+
+a.img, a.img:visited, a.img:hover {
+  padding: 0px;
+  border: 0px;
+  background: #FFFFFF;
+}
+
+input, textarea, select {
+  border: 2px solid #C3CED9;
+  background-color: #F9FBFC;
+  color: #333333;
+  font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;;
+  font-size: 12px;
+  font-weight: normal;
+  z-index: -3;
+}
+
+.inputbox {
+  font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;;
+  border: 2px solid;
+  border-top-color: #C0C0C0;
+  border-left-color: #C0C0C0;
+  border-right-color: #CCCCCC;
+  border-bottom-color: #CCCCCC;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+  z-index: -3;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.inputbox:hover {
+  border-top-color: #999999;
+  border-left-color: #999999;
+  border-right-color: #909090;
+  border-bottom-color: #909090;
+}
+
+.inputbox:focus {
+  border: 2px solid #33CC00;
+  background-color: #FFFFCC;
+}
+
+.page_header {
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
+  height: 88px;
+  border-spacing: 0px;
+  border-bottom: 1px dotted #CCCCCC;
+}
+
+.page_logo {
+  margin: 5px 0px 0px 0px;
+  float: left;
+}
+
+.page_title {
+  margin-top: 50px;
+  font-size: 1.1em;
+  float: right;
+  line-height: 2em;
+/*
+  font-weight: bold;*/
+}
+
+.page_bottom {
+  clear: both;
+  padding: 3px 10px;
+  text-align: center;
+  border-top: 1px dotted #CCCCCC;
+  color: #777777;
+}
+
+div.page_body {
+  float: left;
+  width: 100%;
+  margin-right: -290px;
+  background: url(../images/background.png) repeat-y top right;
+/*  border: 2px solid #FF0000;*/
+}
+
+div.body_main {
+  margin-right: 290px;
+  padding: 35px 25px 35px 30px;
+  display: block;
+/*  border: 2px solid #FF0000;*/
+}
+
+div.side_bar {
+  float: right;
+  width: 260px;
+  padding: 1.2em;
+  voice-family: "\"}\""; 
+  voice-family: inherit;
+/*  border: 2px solid #00FF00;
+  border-left: 1px dashed #D5D5D5;
+  -moz-border-radius: 7px;*/
+}
+
+html>body #side_bar {
+  width: 260px;
+}
+
+div.side_bar h2 {
+  margin: 0px;
+  padding: 0px;
+  color: #333333;
+  font-size: 13px;
+  font-family: "Lucida Grande",Verdana,"Bitstream Vera Sans",Arial,sans-serif;
+  border-bottom: 1px dashed #CCCCCC;
+}
+
+div.side_tab, div.side_tabref {
+  padding: 2px 0px 3px 0px;
+}
+
+div.side_tab p {
+  margin: 4px 0px 1px 0px;
+}
+
+div.side_tab ul, div.side_tabref ul {
+  margin: 0px;
+  padding: 2px 0px 0px 10px;
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: none;
+}
+
+div.side_tab ul li {
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: none;
+  margin: 0px;
+  padding: 1px 0 1px 10px;
+  background: url(../images/icon.gif) no-repeat 0 7px;
+}
+div.side_tabref ul li {
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: none;
+  margin: 4px 0px 1px 0px;
+  width: 240px;
+}
+.panel {
+  border-top: 1px dashed #CCCCCC;
+}
+.center {
+  margin: 0px;
+  padding: 0px;
+  background: none;
+  text-align: center;
+}
+.reffirefox {
+  padding: 0px 0px 0px 20px;
+  background: url(../images/reffirefox.png) no-repeat 0 0;
+}
+.refpicasa {
+  padding: 0px 0px 0px 20px;
+  background: url(../images/refpicasa.png) no-repeat 0 0;
+}
+.reffirefox a {
+  padding-right: 0px;
+  background: none;
+}
+.refpicasa a {
+  padding-right: 0px;
+  background: none;
+}
+
+div.post {
+  margin: 0px;
+  padding: 15px 0 10px 0;
+  text-align: justify;
+  display: block;
+/*  border: solid 1px #FF0000;*/
+}
+
+div.post h2 {
+  margin: 5px 0px;
+  padding: 0 0 0 30px;
+  font-size: 1.3em;
+  background: url(../images/posthead.gif) no-repeat top left;
+}
+
+div.post h3 {
+  margin: 0px;
+  padding: 5px 0 2px 0;
+  font-size: 1.2em;
+}
+
+div.post p {
+  margin: 8px 0 0;
+}
+
+div.post small {
+  line-height: 1.0em;
+  font-size: 12px;
+  color: #999;
+  margin: 0px;
+  padding: 0px;
+}
+
+div.entry {
+  line-height: 1.4em;
+}
+
+.postmetadata {
+  margin: 0px;
+  padding: 0 0 0 3em;
+  font-size: 0.9em;
+  clear: both;
+  color: #999;
+  background: url(../images/deco.gif) no-repeat bottom left; 
+}
+
+.permalink {
+  padding: 0;
+  font-size: 12px;
+/*  background: url(../images/perma.gif) no-repeat center left;*/
+}
+
+.commentslink {
+  padding: 0;
+  font-size: 12px;
+/*  background: url(../images/comments.gif) no-repeat center left;*/
+}
+
+div.entry pre {
+  margin: 0px;
+  padding: 0px;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+div.entry code {
+  margin: 0px;
+  padding: 3px 10px 3px;
+  border: 1px solid #7965CF;
+  background: #FEF5C1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  display: block;
+  list-style: none;
+}
+
+.singleads {
+  margin: 10px auto 0;
+  text-align: center;
+/*  border-bottom: 1px solid #ddd;*/
+}
+
+.postmetaalt {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #F8F8F8;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.postmetaalt small {
+  font-size: 12px;
+}
+
+#comment_form {
+  margin: 0px;
+  padding: 0px;
+}
+#comment_form a {
+  width: 0px;
+  height: 0px;
+}
+
+.commentmetadata {
+  padding: 0 0 0 1.5em;
+  font-weight: normal;
+}
+
+.commentodd {
+  background-color: #F5FFFA;
+}
+.commenteven {
+  background-color: #FFFFF0;
+}
+
+.commentlist {
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  list-style-type: none;
+/*  border: 1px solid #ff0000;*/
+}
+
+.commentlist li {
+  margin: 6px 0px;
+  padding: 5px 8px 3px;
+  list-style: none;
+}
+.commentlist li:hover {
+  background-color: #E6E6FA;
+}
+
+.commentlist small {
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+}
+
+.commentlist p {
+  margin: 0px;
+  padding: 0px 0px 0px 10px;
+  text-transform: none;
+}
+
+.commentlist cite {
+  margin: 0px;
+  padding: 0px;
+  color: #333333;
+  font-weight: bold;
+  font-size: 1.0em;
+}
+
+.navigation {
+  margin: 0;
+  padding: 25px 0;
+  display: block;
+}
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left
+}
+
+.singleline {
+  margin: 15px;
+  text-align: center;
+}
+
+.underline{
+  background: url(../images/underline.gif) repeat-x bottom
+}
+
+.para_green_text {
+  margin: 20px 20px;
+}
+
+.para_green_text h3 {
+  color: #006800;
+  display: block;
+}
+
+.page_login {
+  text-align: center;
+  font-size: 12px;
+  padding: 12px 8px 0px 10px;
+  white-space: nowrap;
+}
+
+.page_login p {
+  line-height: 2.2em;
+}
+
+.validate {
+  background-color: #FFCC00;
+  border: dotted 1px;
+  margin: 0px;
+  padding: 0px 2px;
+}
+
+.validate img {
+  margin: 0px;
+  padding: 0px;
+}
+
+.validate ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-position: inside;
+}
+
+.validate ul li {
+  margin: 0px 5px;
+  padding: 0px;
+}
+
+.login_icon {
+  margin: 5px 0px;
+  padding: 0 0 0 40px;
+  font-size: 1.5em;
+  line-height: 2em;
+}
+
+img.album {
+  float: none;
+  background: #FFFFFF;
+  padding: 4px;
+  border: 1px solid #C5BDBD;
+  position: relative;
+}

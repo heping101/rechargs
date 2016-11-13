@@ -1,0 +1,43 @@
+{% extends "layouts/console.html" %}
+{% load i18n %}
+{% block title %} {% trans "Administrator Sign In" %} &laquo; {{ SITEINFO_NAME|escape }} &laquo; {{ SITEINFO_URL|escape }}{% endblock %}
+{% block content %}
+<div class="page_login">
+  <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+  <div style="align: left;padding-right: 10%;"><h2 class="login_icon"><img src="{{ STATIC_URL|escape }}images/login_icon.png" align="absmiddle" border="0" alt="Load" /> {% trans "Administrator Sign In" %}</h2></div>
+{% if form.non_field_errors or form.this_is_the_login_form.errors %}
+  <div style="align: center; color: #FF0000;">{% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}{{ error }}{% endfor %}</div>
+{% endif %}
+  <table cellpadding="1" cellspacing="3" border="0" align="center">
+    <tr>
+      <td align="right" width="100"><label for="id_email" style="color: #006800;">{% trans "Email Address:" %}</label></td>
+      <td align="left"><input class="inputbox" id="id_email" maxlength="100" name="email" size="18" type="text" value="{{ request.POST.email|escape }}" /></td>
+      <td align="left" width="140" rowspan="3" class="validate"><ul>
+          <li>{% trans "请按下图输入验证码" %}</li>
+          <li>{% trans "验证码中不包含数字" %}</li>
+        </ul>
+        <img src="{% url 'validate_image' %}" id="validateimg" border="0" alt="{% trans "Authentication Code" %}" /></td>
+    </tr>
+    <tr>
+      <td align="right"><label for="id_password" style="color: #006800;">{% trans "Your Password:" %}</label></td>
+      <td align="left"><input class="inputbox" id="id_password" maxlength="20" name="password" size="18" type="password" /></td>
+    </tr>
+    <tr>
+      <td align="right"><label for="id_authentication_code" style="color: #006800;">{% trans "Authentication Code:" %}</label></td>
+      <td align="left"><input class="inputbox" id="id_authentication_code" maxlength="20" name="authcode" size="18" type="text" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="left"><input style="border: 0px;" align="center" alt="{% trans "Sign In" %}" border="0" src="{{ STATIC_URL|escape }}images/login.png" type="image" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <input type="hidden" name="this_is_the_login_form" value="1" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </table>
+</form>
+<br clear="all" />
+</div>
+<script type="text/javascript">
+document.getElementById('id_email').focus()
+</script>
+{% endblock %}

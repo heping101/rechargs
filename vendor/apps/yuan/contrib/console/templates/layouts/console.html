@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+{% load i18n %}
+{% load vendorinfo %}
+{% load surlize %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{{ SITEINFO_NAME|escape }} &laquo; {{ SITEINFO_URL|escape }}{% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="{{ LANGUAGE_CODE }}" />
+<meta name="Author-Corporation" content="dirk.sh" />
+<meta name="Publisher" content="Yuan {% vendor_version %}" />
+<meta name="Copyright" content="Copyright (C) 2015 dirk.sh All rights reserved." />
+<meta name="keywords" content="{% block keywords %}{% endblock %}" />
+<meta name="description" content="{% block description %}{% endblock %}" />
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+<link href="{% url_for_stylesheet "console.css" %}" media="screen" rel="stylesheet" type="text/css" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" media="screen" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen" />
+</head>
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+<div class="page_header">
+  <div class="page_logo"><a href="{{ SITEINFO_URL|escape }}" class="img" title="{{ SITEINFO_NAME|escape }}"><img style="align: left; border: 0px;" alt="{{ SITEINFO_NAME|escape }}" border="0" src="{{ STATIC_URL|escape }}images/logo.png" /></a></div>
+  <div class="page_title">{{ SITEINFO_SUBTITLE|escape }}</div>
+</div>
+{% block content %}
+{% block object-tools %}{% endblock %}
+{{ content }}
+{% endblock %}
+<div class="page_bottom">
+  <a href="{{ SITEINFO_URL|escape }}">{{ SITEINFO_NAME|escape }}</a> &copy; 2015 DIrk.sh All rights reserved.
+</div>
+</body>
+</html>
