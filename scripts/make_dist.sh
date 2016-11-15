@@ -16,4 +16,4 @@ fi ;
 
 mkdir -p ${BASEDIR}/../dist
 
-cd ${BASEDIR}/.. && git archive --prefix=xylive/ --format=tar ${COMMIT_ID} | tar -xvf - -C dist/
+cd ${BASEDIR}/.. && git archive --prefix=recharge/ --format=tar ${COMMIT_ID} | tar -xvf - -C dist/
