@@ -6,4 +6,4 @@ else
     BASEDIR=$(dirname $0) ;
 fi ;
 
-`which rsync` -vzcrlptD --no-g --progress --stats --rsh=ssh -e "ssh -p 81 -l root" ${BASEDIR}/../dist/recharge/ xxxx:/export0/recharge/recharge/
+`which rsync` -vzcrlptD --no-g --progress --stats --rsh=ssh -e "ssh -p 81 -l root" ${BASEDIR}/../dist/recharge/ 45.76.100.193:/export0/recharge/
