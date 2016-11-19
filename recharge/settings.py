@@ -139,10 +139,10 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'runfast',
+        'NAME': 'data',
         'USER': 'runfast',
         'PASSWORD': 'runfast',
-        'HOST': 'xxxx',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     },
     'OPTIONS': {'charset': 'utf8', 'init_command': 'SET storage_engine=InnoDB'},
