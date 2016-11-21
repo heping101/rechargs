@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="RunFast, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+{% block css %}
+{% include "_stylesheet.html" %}
+{% endblock %}
+{% include "_javascript.html" %}
+{% block common_script %}
+{% endblock %}
+{% block title %}
+  <title>RunFast</title>
+{% endblock %}
+
+</head>
+
+<body class="sticky-header" style="overflow-x: hidden; overflow-y: hidden;">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+	
+        {% block logo %}
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="#"><img src="{{ STATIC_URL }}images/logo.png" alt=""></a>
+        </div>
+        {% endblock %}
+        {% block sidebar %}  <!--  -->
+		<div id="sidebar" class="menubackground">
+            <div class="left-side-inner">
+
+                <!--sidebar nav start-->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+
+{#                    <li class="active"><a href="###" target="iframemain"><i class="fa fa-edit"></i> <span>基本信息 </span></a></li>#}
+                    <li><a href="###" target="iframemain"> <i class="fa fa-dashboard"></i> <span> 后台汇总 </span></a></li>
+                    <li><a href="###" target="iframemain"> <i class="fa fa-qrcode"></i> <span> 会员管理 </span></a></li>
+                    <li><a href="###" target="iframemain"> <i class="fa fa-qrcode"></i> <span> 玩家管理 </span></a></li>
+                    <li><a href="###" target="iframemain"> <i class="fa fa-qrcode"></i> <span> 售卡记录 </span></a></li>
+                    <li><a href="###" target="iframemain"> <i class="fa fa-qrcode"></i> <span> 牌局统计 </span></a></li>
+                    <li><a href="###" target="iframemain"> <i class="fa fa-qrcode"></i> <span> 会员返卡 </span></a></li>
+{#                    <li><a href="###" target="iframemain"> <i class="fa fa-edit"></i> <span> 修改密码 </span></a></li>#}
+{#                    <li><a href="###" target="iframemain"> <i class="fa fa-desktop"></i> <span> 退出 </span></a></li>#}
+                  {% comment %}  <li class="menu-list"><a href="#"><i class="fa fa-tasks"></i> <span> 后台汇总 </span></a>
+                        <ul class="sub-menu-list">
+                            <li><a href="" target="iframemain"><i class="fa fa-angle-right"></i> 物理服务器 </a></li>
+                            <li><a href="" target="iframemain"><i class="fa fa-angle-right"></i> 虚实结合 </a></li>
+                        </ul>
+                    </li>{% endcomment %}
+
+
+                </ul>
+                <!--sidebar nav end-->
+
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            bingbox0515@gmail.com
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="function/profile.html" target="iframemain"><i class="fa fa-user"></i>  用户信息</a></li>
+                            <li><a href="function/accountsecurity.html" target="iframemain"><i class="fa fa-cog"></i>  修改密码</a></li>
+                            <li><a href="login.html" target="_parent"><i class="fa fa-sign-out"></i> 退出</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+
+
+    </div>
+    <!-- main content end-->
+</section>
+{% include "_comm_script.html" %}
+</body>
+</html>

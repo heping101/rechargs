@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 D_APP_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
 
-# 我们自己的存储根目录
-STORAGE_ROOT = os.path.join(D_APP_ROOT, 'storage')
+# # 我们自己的存储根目录
+# STORAGE_ROOT = os.path.join(D_APP_ROOT, 'storage')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -92,9 +92,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(D_APP_ROOT, 'templates'),
-            os.path.join(D_APP_ROOT, 'vendor/apps/yuan/contrib/console/templates'),
         ],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'debug': DEBUG,
             'context_processors': [
@@ -271,19 +270,21 @@ FILE_CHARSET = 'utf-8'
 SITE_URL = 'http://ap.runfast.cn/'
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-STATIC_ROOT = os.path.join(STORAGE_ROOT, 'static/')
-STATIC_URL = '//s1.imgcdn.demodemo.cc/www/live/'
-STATIC_URL_SHARE_HTLM = 'http://s1.imgcdn.demodemo.cc/www/live/'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(D_APP_ROOT, 'static'),
+]
+# STATIC_URL_SHARE_HTLM = 'http://s1.imgcdn.demodemo.cc/www/live/'
 
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(STORAGE_ROOT, 'assets/')
+# MEDIA_ROOT = os.path.join(STORAGE_ROOT, 'assets/')
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
-MEDIA_URL = 'http://img.runfast.cn/assets/'
+# MEDIA_URL = 'http://img.runfast.cn/assets/'
 
 # Maximum size, in bytes, of a request before it will be streamed to the
 # file system instead of into memory.

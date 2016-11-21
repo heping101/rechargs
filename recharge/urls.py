@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from views import UserInfo, Sidebar
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'/', admin.site.urls),
+    url(r'^userinfo/', UserInfo.as_view(), name='userinfo'),
+    url(r'^sidebar/', Sidebar.as_view(), name='sidebar'),
 
 ]
