@@ -26,6 +26,8 @@ USER_GENDER_CHOICES = (
 
 class Users(models.Model):
     """ 用户 """
+
+
     wx_openid = models.CharField(u'OpenId', max_length=200, db_index=True)
     wx_name = models.CharField(u'昵称', max_length=100, db_index=True)
     wx_avatar = models.CharField(u'头像', max_length=300)

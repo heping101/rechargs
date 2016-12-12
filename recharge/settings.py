@@ -63,9 +63,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'yuan.contrib.console',
-    'yuan.contrib.crashlog',
-    'daterange_filter',
+    'recharge',
+    'apps',
+
+
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -303,16 +304,18 @@ FILE_UPLOAD_PERMISSIONS = 0644
 # AUTHENTICATION
 # ---------------------------------------
 
-AUTHENTICATION_BACKENDS = ('yuan.contrib.console.backends.ConsoleModelBackend',
-                           'django.contrib.auth.backends.ModelBackend',)
+AUTHENTICATION_BACKENDS = ('apps.runfastauth.backends',)
+AUTH_USER_MODEL = 'apps.seller.models.Sellers'
 
-LOGIN_URL = '/console/'
+LOGIN_URL = '/login/'
 
-LOGIN_REDIRECT_URL = '/console/'
+LOGIN_REDIRECT_URL = '/login/'
 
 REDIRECT_FIELD_NAME = 'next'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+
 
 # --------------------------------------
 # Site info

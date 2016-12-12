@@ -23,6 +23,8 @@ SELLER_TYPE_CHOICES = (
 
 class Sellers(models.Model):
     """代理"""
+
+    USERNAME_FIELD = 'name'
     name = models.CharField(u'姓名', max_length=200, db_index=True)
     password = models.CharField(u'密码', max_length=100)
     address = models.CharField(u'联系地址', max_length=300)
@@ -40,6 +42,45 @@ class Sellers(models.Model):
         verbose_name = u'代理与管理员'
         verbose_name_plural = u'代理与管理员'
         db_table = 'sellers'
+
+    def get_username(self):
+        "Return the identifying username for this User"
+        return getattr(self, self.USERNAME_FIELD)
+
+    def __str__(self):
+        return self.get_username()
+
+    def is_anonymous(self):
+        """
+        Always returns False. This is a way of comparing User objects to
+        anonymous users.
+        """
+        return False
+
+    def is_authenticated(self):
+        """
+        Always return True. This is a way to tell if the user has been
+        authenticated in templates.
+        """
+        return True
+
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+
+    def check_password(self, raw_password):
+        """
+        Returns a boolean of whether the raw_password was correct. Handles
+        hashing formats behind the scenes.
+        """
+        def setter(raw_password):
+            self.set_password(raw_password)
+            self.save(update_fields=["password"])
+        return check_password(raw_password, self.password, setter)
+
+
+
+
+
 
 
 BUYER_TYPE_AS_USER = 1
