@@ -304,7 +304,8 @@ FILE_UPLOAD_PERMISSIONS = 0644
 # AUTHENTICATION
 # ---------------------------------------
 
-AUTHENTICATION_BACKENDS = ('apps.runfastauth.backends',)
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
+
 AUTH_USER_MODEL = 'apps.seller.models.Sellers'
 
 LOGIN_URL = '/login/'
