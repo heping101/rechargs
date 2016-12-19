@@ -306,7 +306,7 @@ FILE_UPLOAD_PERMISSIONS = 0644
 
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
-AUTH_USER_MODEL = 'apps.seller.models.Sellers'
+AUTH_USER_MODEL = 'app.seller.Sellers'
 
 LOGIN_URL = '/login/'
 
