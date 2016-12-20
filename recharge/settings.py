@@ -64,7 +64,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recharge',
-    'apps',
+    'runfastauth',
+    'game',
+    'seller',
 
 
 ]
@@ -80,9 +82,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'yuan.contrib.crashlog.middleware.CrashLogMiddleware',
     'django.middleware.gzip.GZipMiddleware',
-    'yuan.middleware.StripWhitespaceMiddleware',
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
@@ -306,11 +306,11 @@ FILE_UPLOAD_PERMISSIONS = 0644
 
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
-AUTH_USER_MODEL = 'app.seller.Sellers'
+AUTH_USER_MODEL = 'seller.Sellers'
 
 LOGIN_URL = '/login/'
 
-LOGIN_REDIRECT_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 
 REDIRECT_FIELD_NAME = 'next'
 

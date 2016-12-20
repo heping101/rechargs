@@ -27,13 +27,15 @@ ROOM_STATUS_CHOICES = (
 class Rooms(models.Model):
     """房间"""
     id = models.CharField(primary_key=True, max_length=5)
-    creator = models.ForeignKey(Users, verbose_name=u'创建者', db_index=True)
-    pointer = models.ForeignKey(Users, verbose_name=u'指针', blank=True, null=True, db_index=True)
+    creator = models.ForeignKey(Users, verbose_name=u'创建者', db_index=True, related_name='rooms_creater')
+    pointer = models.ForeignKey(Users, verbose_name=u'指针', blank=True, null=True, db_index=True,
+                                related_name='rooms_play')
     l_cards = models.CharField(u'上家出得牌', max_length=20, blank=True)
     g_num = models.PositiveIntegerField(u'局数', default=0)
     disband = models.BooleanField(u'是否同意解散', default=False, db_index=True)
     args = models.TextField(u'统计步骤')
-    status = models.CharField(u'房间状态', choices=ROOM_STATUS_CHOICES, default=ROOM_STATUS_AS_UNUSED, db_index=True)
+    status = models.CharField(u'房间状态', choices=ROOM_STATUS_CHOICES, default=ROOM_STATUS_AS_UNUSED, db_index=True,
+                              max_length=50)
     utime = models.PositiveIntegerField(u'更新时间', default=0, db_index=True)
     ctime = models.PositiveIntegerField(u'创建时间', default=0, db_index=True)
 
@@ -48,8 +50,9 @@ class Rooms(models.Model):
 
 class UserRooms(models.Model):
     """房间玩家"""
-    r_id = models.ForeignKey(Users, verbose_name=u'创建者', db_index=True)
-    u_id = models.ForeignKey(Users, verbose_name=u'指针', blank=True, null=True, db_index=True)
+    r_id = models.ForeignKey(Rooms, verbose_name=u'创建者', db_index=True, related_name="%(app_label)s_%(class)s_related")
+    u_id = models.ForeignKey(Users, verbose_name=u'指针', blank=True, null=True, db_index=True,
+                             related_name="%(app_label)s_%(class)s_related")
     g_num = models.PositiveIntegerField(u'局数', default=0)
     bomb = models.PositiveSmallIntegerField(u'炸弹数', default=0)
     location = models.PositiveSmallIntegerField(u'玩家位置', help_text=u'1下方 2右方 3左方')

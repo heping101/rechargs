@@ -28,13 +28,11 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysite',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'runfast',
+        'USER': 'runfast',
+        'PASSWORD': 'runfast',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
-        'CONN_MAX_AGE': 10
     },
     'OPTIONS': {'charset': 'utf8', 'init_command': 'SET storage_engine=InnoDB'},
 }
-

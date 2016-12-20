@@ -23,7 +23,9 @@ SELLER_TYPE_CHOICES = (
 class Sellers(models.Model):
     """代理"""
 
-    USERNAME_FIELD = 'name'
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['name']
+    username = models.CharField(u'用户名', max_length=200, unique=True, blank=False)
     name = models.CharField(u'姓名', max_length=200, db_index=True)
     password = models.CharField(u'密码', max_length=100)
     address = models.CharField(u'联系地址', max_length=300)
@@ -36,7 +38,7 @@ class Sellers(models.Model):
     ctime = models.PositiveIntegerField(u'创建时间', default=0, db_index=True)
 
     def __unicode__(self):
-        return u"%s<%s>" % (self.name, self.pk)
+        return u"%s<%s>" % (self.username, self.pk)
 
     class Meta:
         verbose_name = u'代理与管理员'
@@ -50,6 +52,7 @@ class Sellers(models.Model):
     def __str__(self):
         return self.get_username()
 
+    @property
     def is_anonymous(self):
         """
         Always returns False. This is a way of comparing User objects to
@@ -57,6 +60,7 @@ class Sellers(models.Model):
         """
         return False
 
+    @property
     def is_authenticated(self):
         """
         Always return True. This is a way to tell if the user has been
