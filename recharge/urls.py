@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """recharge URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,12 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from views import UserInfo, Sidebar
 
 urlpatterns = [
-    url(r'^userinfo/', UserInfo.as_view(), name='userinfo'),
-    url(r'^sidebar/', Sidebar.as_view(), name='sidebar'),
+    url(r'^userinfo/', UserInfo.as_view(), name='userinfo'),  #testview
+    url(r'^sidebar/', Sidebar.as_view(), name='sidebar'),   #设置纵向导航
+    url(r'',  include('runfastauth.urls')),
+    url(r'^seller/', include('seller.urls')),
+
 
 ]

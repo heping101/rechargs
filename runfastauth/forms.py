@@ -8,7 +8,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(label=u'用户名', required=True,
                                error_messages={"required": u"请输入用户名"}, )
 
-    password = forms.CharField(widget=forms.PasswordInput, required=True,
+    password = forms.CharField(label=u'', widget=forms.PasswordInput, required=True,
                                error_messages={"required": u"请输入密码"})
 
     error_messages = {
