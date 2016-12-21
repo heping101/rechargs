@@ -9,3 +9,4 @@ class UserInfo(TemplateView):
 
 class Sidebar(TemplateView):
     template_name = 'menu.html'
+

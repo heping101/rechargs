@@ -9,6 +9,8 @@
   @copyright Copyright (c) 2016 runfast.cn
   @link http://runfast.cn
 """
+from django.contrib.auth.decorators import login_required
+from django.urls.resolvers import RegexURLPattern
 
 
 def get_vistor_ip(request):
@@ -22,3 +24,13 @@ def get_vistor_ip(request):
     return ip
 
 
+def login_filter(urlpatterns, exclude=[]):
+    """决定哪些url必须要登陆后才能访问"""
+    u = []
+    for _url in urlpatterns:
+        if _url.name not in exclude:
+            s = RegexURLPattern(_url.regex.pattern, login_required(_url.callback), name=_url.name)
+            u.append(s)
+        else:
+            u.append(_url)
+    return u

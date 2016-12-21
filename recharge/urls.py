@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 """recharge URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,13 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
+
+from seller.views import SellerInfo
 from views import UserInfo, Sidebar
 
 urlpatterns = [
-    url(r'^userinfo/', UserInfo.as_view(), name='userinfo'),  #testview
-    url(r'^sidebar/', Sidebar.as_view(), name='sidebar'),   #设置纵向导航
-    url(r'',  include('runfastauth.urls')),
-    url(r'^seller/', include('seller.urls')),
-
+    url(r'^userinfo/', UserInfo.as_view(), name='userinfo'),
+    url(r'^sidebar/', Sidebar.as_view(), name='sidebar'),
+    url(r'^$', login_required(SellerInfo.as_view()), name='info'),
+    url(r'^/', include('runfastauth.urls', namespace='runfastauth')),
+    # url(r'^seller/', include('seller.urls', namespace='seller')),
 
 ]

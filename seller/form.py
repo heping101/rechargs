@@ -2,12 +2,18 @@
 
 from django import forms
 from django.forms.models import ModelForm
+from django.forms.widgets import TextInput
 
 from seller.models import Sellers
 
 
-class SellerEdit(ModelForm):
+class SellerEditForm(ModelForm):
 
     class Meta:
         model = Sellers
-        fields = ['id', 'username', 'name', 'address', '', '', '', '',]
+        fields = ['username', 'name', 'address', 'phone_num', 'room_cards', 'seller_type', 'status']
+        widgets = {
+            'username': TextInput(attrs={'disabled': "disabled"})
+
+        }
+
